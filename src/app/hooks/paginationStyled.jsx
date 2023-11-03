@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colors from "../constants/colors"
+import colors from "../constants/colors";
 
 export const PaginationContainer = styled.div`
   display: flex;
@@ -7,7 +7,6 @@ export const PaginationContainer = styled.div`
   align-items: center;
   margin-bottom: 50px;
   width: 70vw;
-  border: solid red;
 `;
 export const PageNumber = styled.button`
   border: none;
@@ -20,11 +19,18 @@ export const PageNumber = styled.button`
   padding: 5px 10px;
   margin: 0 5px;
   cursor: pointer;
-  &:hover{
+  &:hover {
     color: ${colors.blue};
   }
 `;
 export const PageLabel = styled.span`
   margin-right: 5px;
   font-weight: 600;
+`;
+export const NavigationButton = styled.div`
+  margin: 5px;
+&:hover {
+ cursor: pointer;
+  color: ${colors.blue};
+}
 `;

@@ -1,10 +1,10 @@
-# `Teste Leadster`
+# `Teste Azapfy`
 
-Atividade Frontend Leadster
+Atividade Frontend Azapfy
 
 # `Link`
 
-https://marleo-leadster.vercel.app
+https://marleo-azapfy.vercel.app
 
 # `Descrição`
 
@@ -18,19 +18,19 @@ https://marleo-leadster.vercel.app
 - Controle de versão com o GitHub: Enviei o código-fonte do projeto para o GitHub, que é uma plataforma popular para hospedar repositórios Git. Isso permite controlar e colaborar no desenvolvimento do código.
 - Deploy no Vercel: Utilizei o Vercel, uma plataforma de hospedagem de aplicativos web, para fazer o deploy do projeto. Isso torna o site acessível na web para que outras pessoas possam visualizá-lo.
 
-O repositório do projeto pode ser encontrado [aqui](https://github.com/marleopr/teste-leadster)
+O repositório do projeto pode ser encontrado [aqui](https://github.com/marleopr/teste-azapfy)
 
 # `Instalando e rodando o projeto`
 
 Pré-requisitos: Certifique-se de ter o Node.js instalado no seu computador.
 
-- Clone o repositório: Clone o repositório do projeto a partir do GitHub usando o comando git clone https://github.com/marleopr/teste-leadster.git.
+- Clone o repositório: Clone o repositório do projeto a partir do GitHub usando o comando git clone https://github.com/marleopr/teste-azapfy.git.
 
 - Instale as dependências: Navegue até o diretório raiz do projeto e execute o comando npm install para instalar todas as dependências listadas no arquivo package.json.
 
 - Inicie o servidor de desenvolvimento: Após a conclusão da instalação das dependências, execute o comando npm run dev para iniciar o servidor de desenvolvimento.
 
-- Acesse o site: Abra o navegador e acesse http://localhost:3000 para visualizar o site da Leadster.
+- Acesse o site: Abra o navegador e acesse http://localhost:3000 para visualizar o site da Azapfy.
 
 # `Tecnologias utilizadas`
 
