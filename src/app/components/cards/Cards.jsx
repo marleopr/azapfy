@@ -15,9 +15,9 @@ import ModalCards from "./ModalCards";
 
 const Context = createContext();
 
-const Cards = () => {
+const Cards = ({  searchHero }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 15;
+  const itemsPerPage = 24;
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -37,8 +37,16 @@ const Cards = () => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data && data.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = data ? Math.ceil(data.length / itemsPerPage) : 0;
+
+  const filteredVideos = data
+    ? data.filter((videos) => videos.name.toLowerCase().includes(searchHero))
+    : [];
+
+  const currentItems =
+    filteredVideos && filteredVideos.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = filteredVideos
+    ? Math.ceil(filteredVideos.length / itemsPerPage)
+    : 0;
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);

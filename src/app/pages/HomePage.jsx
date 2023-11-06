@@ -14,7 +14,12 @@ const Context = createContext();
 
 const HomePage = () => {
   // const [videos, setVideos] = useState(videosData.videos);
-  const [videos, setVideos] = useState();
+  // const [videos, setVideos] = useState();
+  const [searchHero, setSearchHero] = useState("");
+
+  const handleSearchHero = (event) => {
+    setSearchHero(event.target.value);
+  };
 
   return (
     <Main>
@@ -29,9 +34,15 @@ const HomePage = () => {
           <SelectInput>
             <option>Data de Publicação</option>
           </SelectInput>
+          <input
+            type="text"
+            placeholder="Pesquisar..."
+            value={searchHero.toLowerCase()}
+            onChange={handleSearchHero}
+          />
         </RangeSelect>
       </RangeButton>
-      <Cards videos={videos} />
+      <Cards  searchHero={searchHero} />
     </Main>
   );
 };

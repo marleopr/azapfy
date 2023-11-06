@@ -8,7 +8,7 @@ export const Main = styled.div`
   justify-content: center;
   box-sizing: border-box;
   overflow-x: hidden;
-  width: 70vw;
+  width: 95vw;
   @media screen and (max-device-width: 480px) {
     width: 100%;
   }
@@ -39,7 +39,8 @@ export const ImagesPoster = styled.div`
   cursor: pointer;
 `;
 export const PosterContainer = styled.div`
-  width: 20rem;
+  /* border: solid red; */
+  width: 12rem;
   position: relative;
   border-radius: 10px;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
@@ -120,7 +121,7 @@ export const ModalOverlay = styled.div`
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9999;
-  `;
+`;
 
 export const ModalContent = styled.div`
   position: relative;
@@ -135,7 +136,6 @@ export const ModalContent = styled.div`
     border: solid red;
     width: 100%;
     margin-bottom: 10px;
-    
   }
   .dividing-line {
     text-align: center;
