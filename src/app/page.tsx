@@ -14,7 +14,7 @@ export default function Home() {
       <main>
         <Header />
         <HomePage />
-        <Banner />
+        {/* <Banner /> */}
         <Footer />
       </main>
     </>

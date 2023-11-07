@@ -1,0 +1,77 @@
+/* FOOTER */
+.card-footer {
+  display: flex;
+  height: 70px;
+  width: 270px;
+}
+
+.card-footer svg {
+  position: absolute;
+  display: flex;
+  width: 60%;
+  height: 100%;
+  font-size: 24px;
+  font-weight: 700;
+  opacity: 1;
+  transition: opacity 0.25s;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.card-footer .social-link1,
+.card-footer .social-link2,
+.card-footer .social-link3,
+.card-footer .social-link4 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  color: #007dff;
+  font-size: 24px;
+  text-decoration: none;
+  transition: 0.25s;
+  border-radius: 50px;
+}
+
+.card-footer svg {
+  transform: scale(1);
+}
+
+.card-footer .social-link1:hover {
+  background-color: #1a1e22;
+  animation: bounce_613 0.4s linear;
+}
+
+.card-footer .social-link2:hover {
+  background-color: #0a66c2;
+  animation: bounce_613 0.4s linear;
+}
+
+.card-footer .social-link3:hover {
+  background-color: #f78000;
+  animation: bounce_613 0.4s linear;
+}
+
+.card-footer .social-link4:hover {
+  background-color: #25d366;
+  animation: bounce_613 0.4s linear;
+}
+
+@keyframes bounce_613 {
+  40% {
+    transform: scale(1.4);
+  }
+
+  60% {
+    transform: scale(0.8);
+  }
+
+  80% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

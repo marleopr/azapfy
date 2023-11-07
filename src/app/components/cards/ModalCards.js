@@ -4,6 +4,7 @@ import styled from "styled-components";
 import colors from "../../constants/colors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFistRaised, faShield, faBrain, faBolt, faTachometerAlt, faDumbbell, faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "@mui/material";
 const Context = createContext();
 
 const ModalCards = ({ closeModal, selectedVideo }) => {
@@ -17,22 +18,45 @@ const ModalCards = ({ closeModal, selectedVideo }) => {
         <ModalCloseButton onClick={closeModal}>x</ModalCloseButton>
         <ModalTitle>
           <span className="title">{selectedVideo.name}</span>
-          <span>- {selectedVideo.biography.aliases}</span>
+          <span>
+            -{" "}
+            {selectedVideo.biography.aliases[0]
+              ? selectedVideo.biography.aliases[0] === "-"
+                ? "Sem informações"
+                : selectedVideo.biography.aliases[0]
+              : "Sem informações"
+            }</span>
+          {/* {console.log(selectedVideo.biography.aliases)} */}
         </ModalTitle>
         <PosterPath src={selectedVideo.images.lg} alt={selectedVideo.name} />
+        <h6>{selectedVideo.biography.fullName}</h6>
         <Estatisticas>
-          <h6>{selectedVideo.biography.fullName}</h6>
           <p>{selectedVideo.description}</p>
-          <strong>Estatísticas:</strong>
-          <p><FontAwesomeIcon icon={faFistRaised} /> Combate: {selectedVideo.powerstats.combat}</p>
-          <p><FontAwesomeIcon icon={faShield} /> Durabilidade: {selectedVideo.powerstats.durability}</p>
-          <p><FontAwesomeIcon icon={faBrain} /> Inteligência: {selectedVideo.powerstats.intelligence}</p>
-          <p><FontAwesomeIcon icon={faBolt} /> Poder: {selectedVideo.powerstats.power}</p>
-          <p><FontAwesomeIcon icon={faTachometerAlt} /> Velocidade: {selectedVideo.powerstats.speed}</p>
-          <p><FontAwesomeIcon icon={faDumbbell} /> Força: {selectedVideo.powerstats.strength}</p>
-          <h6 style={{ marginTop: "2%" }} className="dividing-line"></h6>
-          <p><FontAwesomeIcon icon={faArrowCircleUp} /> Total: {total} </p>
+          {/* <strong>Estatísticas:</strong> */}
+          <AtributosInfo>
+            <p><FontAwesomeIcon icon={faFistRaised} /> Combate: {selectedVideo.powerstats.combat}</p>
+          </AtributosInfo>
+          <AtributosInfo>
+            <p><FontAwesomeIcon icon={faShield} /> Durabilidade: {selectedVideo.powerstats.durability}</p>
+          </AtributosInfo>
+          <AtributosInfo>
+            <p><FontAwesomeIcon icon={faBrain} /> Inteligência: {selectedVideo.powerstats.intelligence}</p>
+          </AtributosInfo>
+          <AtributosInfo>
+            <p><FontAwesomeIcon icon={faBolt} /> Poder: {selectedVideo.powerstats.power}</p>
+          </AtributosInfo>
+          <AtributosInfo>
+            <p><FontAwesomeIcon icon={faTachometerAlt} /> Velocidade: {selectedVideo.powerstats.speed}</p>
+          </AtributosInfo>
+          <AtributosInfo>
+            <p><FontAwesomeIcon icon={faDumbbell} /> Força: {selectedVideo.powerstats.strength}</p>
+          </AtributosInfo>
+          {/* <h6 style={{ marginTop: "2%" }} className="dividing-line"></h6> */}
+          <Total>
+            <p><FontAwesomeIcon icon={faArrowCircleUp} /> Total: {total} </p>
+          </Total>
         </Estatisticas>
+        <Button>Batalhar</Button>
       </ModalContent>
     </ModalOverlay>
   )
@@ -60,8 +84,8 @@ const ModalContent = styled.div`
   align-items: center;
 
   position: relative;
-  width: 25rem;
-  height: 32rem;
+  width: 22rem;
+  height: 34rem;
   border-radius: 10px;
   border-top: solid ${colors.blue};
   background-color: ${colors.white};
@@ -112,7 +136,47 @@ height: 250px;
 object-fit: cover;  
   `;
 const Estatisticas = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  font-size: 12px;
-
+`
+const AtributosInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  border-radius: 10px;
+  width: 90%;
+  height: 20px;
+  margin: 3px 3px 3px 3px;
+  border: none;
+  color: #3d64b8;
+  background: #fac705;
+  @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+    /* width: 70vw; */
+    /* height: 20px; */
+    /* font-size: 12px; */
+    /* margin: 5px 0 5px 38px; */
+  }
+  `
+const Total = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 90%;
+  height: 25px;
+  margin: 3px 3px 3px 3px;
+  border: none;
+  color: #fac705;
+  background: #3d64b8;
+  @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+    /* width: 80px; */
+    /* height: 20px; */
+    /* font-size: 12px; */
+    /* margin: 5px 0 5px 125px; */
+  }
 `
