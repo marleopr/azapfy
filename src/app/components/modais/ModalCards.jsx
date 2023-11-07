@@ -88,8 +88,8 @@ const ModalCards = ({ closeModal, selectedHero, toggleCardSelection, selectedCar
         </Estatisticas>
         <h6 style={{ marginTop: "2%", marginBottom: "10px" }} className="dividing-line"></h6>
         <ButtonsContainer>
-          <Button variant="contained" href="#contained-buttons" onClick={toggleCardSelection} >Selecionar</Button>
-          <Button variant="contained" href="#contained-buttons" disabled={selectedCards.length !== 2} onClick={openModalBatalha} >Iniciar Batalha</Button>
+          <Button variant="contained" type="contained-buttons" disabled={selectedCards.length === 2} onClick={toggleCardSelection} >Selecionar</Button>
+          <Button variant="contained" type="contained-buttons" disabled={selectedCards.length !== 2} onClick={openModalBatalha} >Iniciar Batalha</Button>
         </ButtonsContainer>
         {modalBatalhaOpen && (
           <ModalBatalha closeModal={closeModalBatalha} selectedHero={selectedHero} selectedCards={selectedCards} vencedor={vencedor} />

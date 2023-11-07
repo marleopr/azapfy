@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import colors from "../../constants/colors";
 
 export const Main = styled.div`
   display: flex;
@@ -18,6 +17,4 @@ export const RangeLogo = styled.div`
   `;
 
 export const Logo = styled.div`
-/* border: solid red; */
-  /* width: 200px; */
 `;

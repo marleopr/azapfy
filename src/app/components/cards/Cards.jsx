@@ -1,5 +1,7 @@
 "use client";
 import { createContext, useState, useEffect } from "react";
+import axios from "axios";
+import { BASE_URL } from "../../constants/BASE_URL";
 import {
   Main,
   CardHeroes,
@@ -10,13 +12,11 @@ import {
   CardDividerBottom,
   ContainerPaginator,
 } from "./CardsStyled";
+import ModalCards from "../modais/ModalCards";
 import Pagination from "../../hooks/pagination";
-import axios from "axios";
-import ModalCards from "./ModalCards";
 import { FaChevronCircleUp } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 const Context = createContext();
 
 const Cards = ({ searchHero }) => {
@@ -43,9 +43,7 @@ const Cards = ({ searchHero }) => {
   useEffect(() => {
     const getHeroes = async () => {
       try {
-        const res = await axios.get(
-          "http://homologacao3.azapfy.com.br/api/ps/metahumans"
-        );
+        const res = await axios.get(`${BASE_URL}/api/ps/metahumans`);
         setData(res.data);
       } catch (error) {
         console.error;

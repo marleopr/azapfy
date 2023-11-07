@@ -5,28 +5,14 @@ import logoSlogan from "public/assets/Header.png";
 import Image from "next/image";
 
 const Context = createContext();
-import {
-  HeaderDescription,
-  HeaderDivider,
-  HeaderSubtitle,
-  HeaderTitle,
-  Logo,
-  Main,
-  RangeInfo,
-  RangeLogo,
-} from "./HeaderStyled";
+import { Logo, Main, RangeLogo } from "./HeaderStyled";
 
 const Header = () => {
   return (
     <Main>
       <RangeLogo>
         <Logo>
-          <Image
-            src={logo}
-            alt="Logotipo da Leadster"
-            width={350}
-            // height={100}
-          />
+          <Image src={logo} alt="Logotipo da Leadster" width={350} />
         </Logo>
       </RangeLogo>
     </Main>

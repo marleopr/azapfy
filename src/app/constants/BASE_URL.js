@@ -1,1 +1,1 @@
-export const BASE_URL = "http://homologacao3.azapfy.com.br/api/ps/metahumans"
+export const BASE_URL = "http://homologacao3.azapfy.com.br"

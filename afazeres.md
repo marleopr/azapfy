@@ -2,12 +2,11 @@ Instruções: https://drive.google.com/file/d/1Nn2IYDPghDWuA98X62AYezPhZOu9KQj_/
 
 API: http://homologacao3.azapfy.com.br/api/ps/metahumans
 
-Usar Material UI
-
 Criar Readme
-Styles em arquivo separado
-favicon, nome e ptbr
 
+Usar Material UI OK
+favicon, nome e ptbr OK
+Styles em arquivo separado modais não
 colocar easteregg OK
 Limpar consoles OK
 async await OK

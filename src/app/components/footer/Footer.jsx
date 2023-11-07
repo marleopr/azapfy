@@ -1,8 +1,7 @@
 "use client";
 import { createContext } from "react";
-import Image from "next/image";
 import { FaGithub, FaLinkedin, FaGlobe, FaWhatsapp } from "react-icons/fa";
-import "../../components/styled.css"
+import "../../components/styled.css";
 const Context = createContext();
 
 const Footer = () => {
@@ -69,18 +68,12 @@ const Footer = () => {
         }}
       >
         <p style={{ margin: 0 }}>
-          Márleo Piber • Full Stack Developer © 2023 •
+          Márleo Piber • Full Stack Developer © 2023
           <a
             href={"https://brapi.dev/"}
             target="_blank"
             rel="noopener noreferrer"
-          >
-            {/* <img
-              style={{ width: "40px", marginLeft: "5px" }}
-              src={brapiLogo}
-              alt="Brapi"
-            /> */}
-          </a>
+          ></a>
         </p>
       </div>
     </div>

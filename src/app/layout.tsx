@@ -4,8 +4,8 @@ import { Plus_Jakarta_Sans } from 'next/font/google'
 const inter = Plus_Jakarta_Sans ({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Leadster',
-  description: 'Teste Leadster',
+  title: 'Heróis',
+  description: 'Teste Azapfy',
 }
 
 export default function RootLayout({
