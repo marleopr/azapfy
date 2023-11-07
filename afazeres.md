@@ -2,15 +2,14 @@ Instruções: https://drive.google.com/file/d/1Nn2IYDPghDWuA98X62AYezPhZOu9KQj_/
 
 API: http://homologacao3.azapfy.com.br/api/ps/metahumans
 
-Melhorar nomes das variaveis
-
+tentar criar batalha
 Usar Material UI
 
+colocar easteregg
+Botão Voltar ao topo
+Melhorar nomes das variaveis
+Limpar consoles
 Criar Readme
 
-Criar Header
-Criar Footer
-Limpar consoles
-colocar easteregg
-tentar criar batalha
-Voltar ao topo
+Criar Header OK
+Criar Footer OK

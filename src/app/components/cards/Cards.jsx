@@ -2,7 +2,7 @@
 import { createContext, useState, useEffect } from "react";
 import {
   Main,
-  CardMovies,
+  CardHeroes,
   ImagesPoster,
   PosterPath,
   PosterContainer,
@@ -38,14 +38,14 @@ const Cards = ({  searchHero }) => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
-  const filteredVideos = data
-    ? data.filter((videos) => videos.name.toLowerCase().includes(searchHero))
+  const filteredHero = data
+    ? data.filter((heroes) => heroes.name.toLowerCase().includes(searchHero))
     : [];
 
   const currentItems =
-    filteredVideos && filteredVideos.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = filteredVideos
-    ? Math.ceil(filteredVideos.length / itemsPerPage)
+    filteredHero && filteredHero.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = filteredHero
+    ? Math.ceil(filteredHero.length / itemsPerPage)
     : 0;
 
   const handlePageChange = (pageNumber) => {
@@ -53,10 +53,10 @@ const Cards = ({  searchHero }) => {
   };
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedHero, setSelectedHero] = useState(null);
 
   const openModal = (video) => {
-    setSelectedVideo(video);
+    setSelectedHero(video);
     setModalOpen(true);
   };
   const closeModal = () => {
@@ -65,7 +65,7 @@ const Cards = ({  searchHero }) => {
 
   return (
     <Main>
-      <CardMovies>
+      <CardHeroes>
         <CardDividerTop />
         <ImagesPoster>
           {currentItems &&
@@ -90,16 +90,16 @@ const Cards = ({  searchHero }) => {
             })}
         </ImagesPoster>
         <CardDividerBottom />
-      </CardMovies>
+      </CardHeroes>
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-      {modalOpen && selectedVideo && (
+      {modalOpen && selectedHero && (
         <ModalCards
           closeModal={closeModal}
-          selectedVideo={selectedVideo}
+          selectedHero={selectedHero}
           // cardTotal={cardTotal}
         />
       )}

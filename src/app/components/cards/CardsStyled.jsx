@@ -14,7 +14,7 @@ export const Main = styled.div`
   }
 `;
 
-export const CardMovies = styled.div`
+export const CardHeroes = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

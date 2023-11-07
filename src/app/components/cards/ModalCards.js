@@ -7,9 +7,9 @@ import { faFistRaised, faShield, faBrain, faBolt, faTachometerAlt, faDumbbell, f
 import { Button } from "@mui/material";
 const Context = createContext();
 
-const ModalCards = ({ closeModal, selectedVideo }) => {
+const ModalCards = ({ closeModal, selectedHero }) => {
 
-  const powerstats = selectedVideo.powerstats;
+  const powerstats = selectedHero.powerstats;
   const total = Object.values(powerstats).reduce((acc, cur) => acc + parseInt(cur), 0);
 
   return (
@@ -17,39 +17,39 @@ const ModalCards = ({ closeModal, selectedVideo }) => {
       <ModalContent>
         <ModalCloseButton onClick={closeModal}>x</ModalCloseButton>
         <ModalTitle>
-          <span className="title">{selectedVideo.name}</span>
+          <span className="title">{selectedHero.name}</span>
           <span>
             -{" "}
-            {selectedVideo.biography.aliases[0]
-              ? selectedVideo.biography.aliases[0] === "-"
+            {selectedHero.biography.aliases[0]
+              ? selectedHero.biography.aliases[0] === "-"
                 ? "Sem informações"
-                : selectedVideo.biography.aliases[0]
+                : selectedHero.biography.aliases[0]
               : "Sem informações"
             }</span>
-          {/* {console.log(selectedVideo.biography.aliases)} */}
+          {/* {console.log(selectedHero.biography.aliases)} */}
         </ModalTitle>
-        <PosterPath src={selectedVideo.images.lg} alt={selectedVideo.name} />
-        <h6>{selectedVideo.biography.fullName}</h6>
+        <PosterPath src={selectedHero.images.lg} alt={selectedHero.name} />
+        <h6>{selectedHero.biography.fullName}</h6>
         <Estatisticas>
-          <p>{selectedVideo.description}</p>
+          <p>{selectedHero.description}</p>
           {/* <strong>Estatísticas:</strong> */}
           <AtributosInfo>
-            <p><FontAwesomeIcon icon={faFistRaised} /> Combate: {selectedVideo.powerstats.combat}</p>
+            <p><FontAwesomeIcon icon={faFistRaised} /> Combate: {selectedHero.powerstats.combat}</p>
           </AtributosInfo>
           <AtributosInfo>
-            <p><FontAwesomeIcon icon={faShield} /> Durabilidade: {selectedVideo.powerstats.durability}</p>
+            <p><FontAwesomeIcon icon={faShield} /> Durabilidade: {selectedHero.powerstats.durability}</p>
           </AtributosInfo>
           <AtributosInfo>
-            <p><FontAwesomeIcon icon={faBrain} /> Inteligência: {selectedVideo.powerstats.intelligence}</p>
+            <p><FontAwesomeIcon icon={faBrain} /> Inteligência: {selectedHero.powerstats.intelligence}</p>
           </AtributosInfo>
           <AtributosInfo>
-            <p><FontAwesomeIcon icon={faBolt} /> Poder: {selectedVideo.powerstats.power}</p>
+            <p><FontAwesomeIcon icon={faBolt} /> Poder: {selectedHero.powerstats.power}</p>
           </AtributosInfo>
           <AtributosInfo>
-            <p><FontAwesomeIcon icon={faTachometerAlt} /> Velocidade: {selectedVideo.powerstats.speed}</p>
+            <p><FontAwesomeIcon icon={faTachometerAlt} /> Velocidade: {selectedHero.powerstats.speed}</p>
           </AtributosInfo>
           <AtributosInfo>
-            <p><FontAwesomeIcon icon={faDumbbell} /> Força: {selectedVideo.powerstats.strength}</p>
+            <p><FontAwesomeIcon icon={faDumbbell} /> Força: {selectedHero.powerstats.strength}</p>
           </AtributosInfo>
           {/* <h6 style={{ marginTop: "2%" }} className="dividing-line"></h6> */}
           <Total>
