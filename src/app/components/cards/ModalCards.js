@@ -7,7 +7,7 @@ import { faFistRaised, faShield, faBrain, faBolt, faTachometerAlt, faDumbbell, f
 import { Button } from "@mui/material";
 const Context = createContext();
 
-const ModalCards = ({ closeModal, selectedHero }) => {
+const ModalCards = ({ closeModal, selectedHero, toggleCardSelection, battleCards, selectedCards }) => {
 
   const powerstats = selectedHero.powerstats;
   const total = Object.values(powerstats).reduce((acc, cur) => acc + parseInt(cur), 0);
@@ -51,12 +51,15 @@ const ModalCards = ({ closeModal, selectedHero }) => {
           <AtributosInfo>
             <p><FontAwesomeIcon icon={faDumbbell} /> Força: {selectedHero.powerstats.strength}</p>
           </AtributosInfo>
-          {/* <h6 style={{ marginTop: "2%" }} className="dividing-line"></h6> */}
           <Total>
             <p><FontAwesomeIcon icon={faArrowCircleUp} /> Total: {total} </p>
           </Total>
         </Estatisticas>
-        <Button>Batalhar</Button>
+        <h6 style={{ marginTop: "2%", marginBottom: "10px" }} className="dividing-line"></h6>
+        <ButtonsContainer>
+          <Button variant="contained" href="#contained-buttons" onClick={toggleCardSelection} >Selecionar</Button>
+          <Button variant="contained" href="#contained-buttons" disabled={selectedCards.length !== 2} onClick={battleCards} >Iniciar Batalha</Button>
+        </ButtonsContainer>
       </ModalContent>
     </ModalOverlay>
   )
@@ -155,13 +158,11 @@ const AtributosInfo = styled.div`
   height: 20px;
   margin: 3px 3px 3px 3px;
   border: none;
-  color: #3d64b8;
-  background: #fac705;
-  @media screen and (min-device-width : 320px) and (max-device-width : 480px){
-    /* width: 70vw; */
-    /* height: 20px; */
-    /* font-size: 12px; */
-    /* margin: 5px 0 5px 38px; */
+  color: #007dff;
+  background: ${colors.yellow};
+  &:hover {
+    color: ${colors.navy};
+    cursor: pointer;
   }
   `
 const Total = styled.div`
@@ -174,12 +175,24 @@ const Total = styled.div`
   height: 25px;
   margin: 3px 3px 3px 3px;
   border: none;
-  color: #fac705;
-  background: #3d64b8;
+  color: ${colors.yellow};
+  background: ${colors.blue};
+  &:hover {
+    background: ${colors.navy};
+    cursor: pointer;
+  }
   @media screen and (min-device-width : 320px) and (max-device-width : 480px){
     /* width: 80px; */
     /* height: 20px; */
     /* font-size: 12px; */
     /* margin: 5px 0 5px 125px; */
   }
+`
+const ButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 10px;
+  /* border: solid 1px red; */
 `

@@ -12,13 +12,55 @@ import {
 import Pagination from "../../hooks/pagination";
 import axios from "axios";
 import ModalCards from "./ModalCards";
+// import { Button } from "@mui/material";
 
 const Context = createContext();
 
-const Cards = ({  searchHero }) => {
+const Cards = ({ searchHero }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 24;
   const [data, setData] = useState(null);
+  const [selectedCards, setSelectedCards] = useState([]);
+
+  const toggleCardSelection = (hero) => {
+    if (selectedCards.length === 2) {
+      // Se já houver 2 cards selecionados, limpe a seleção.
+      setSelectedCards([]);
+    } else if (selectedCards.includes(hero)) {
+      // Remova o card se ele já estiver selecionado.
+      setSelectedCards(
+        selectedCards.filter((selectedHero) => selectedHero !== hero)
+      );
+    } else {
+      // Adicione o card à seleção.
+      setSelectedCards([...selectedCards, hero]);
+    }
+  };
+
+  const battleCards = () => {
+    if (selectedCards.length === 2) {
+      const [card1, card2] = selectedCards;
+      const card1Total = Object.values(card1.powerstats).reduce(
+        (acc, cur) => acc + parseInt(cur),
+        0
+      );
+      const card2Total = Object.values(card2.powerstats).reduce(
+        (acc, cur) => acc + parseInt(cur),
+        0
+      );
+
+      if (card1Total > card2Total) {
+        alert(`${card1.name} é o vencedor!`);
+      } else if (card2Total > card1Total) {
+        alert(`${card2.name} é o vencedor!`);
+      } else {
+        alert("Empate!");
+      }
+      setSelectedCards([]);
+    } else {
+      alert("Selecione exatamente 2 cards para a batalha.");
+    }
+  };
 
   useEffect(() => {
     const getHeroes = () => {
@@ -66,6 +108,8 @@ const Cards = ({  searchHero }) => {
   return (
     <Main>
       <CardHeroes>
+        {/* <Button onClick={battleCards}>Iniciar Batalha</Button> */}
+
         <CardDividerTop />
         <ImagesPoster>
           {currentItems &&
@@ -77,6 +121,7 @@ const Cards = ({  searchHero }) => {
                     0
                   )
                 : 0;
+              // const isSelected = selectedCards.includes(hero);
 
               return (
                 <div key={index}>
@@ -100,6 +145,9 @@ const Cards = ({  searchHero }) => {
         <ModalCards
           closeModal={closeModal}
           selectedHero={selectedHero}
+          toggleCardSelection={() => toggleCardSelection(selectedHero)}
+          battleCards={battleCards}
+          selectedCards={selectedCards}
           // cardTotal={cardTotal}
         />
       )}
