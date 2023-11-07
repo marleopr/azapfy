@@ -12,6 +12,7 @@ import {
 import Pagination from "../../hooks/pagination";
 import axios from "axios";
 import ModalCards from "./ModalCards";
+
 // import { Button } from "@mui/material";
 
 const Context = createContext();
@@ -34,31 +35,6 @@ const Cards = ({ searchHero }) => {
     } else {
       // Adicione o card à seleção.
       setSelectedCards([...selectedCards, hero]);
-    }
-  };
-
-  const battleCards = () => {
-    if (selectedCards.length === 2) {
-      const [card1, card2] = selectedCards;
-      const card1Total = Object.values(card1.powerstats).reduce(
-        (acc, cur) => acc + parseInt(cur),
-        0
-      );
-      const card2Total = Object.values(card2.powerstats).reduce(
-        (acc, cur) => acc + parseInt(cur),
-        0
-      );
-
-      if (card1Total > card2Total) {
-        alert(`${card1.name} é o vencedor!`);
-      } else if (card2Total > card1Total) {
-        alert(`${card2.name} é o vencedor!`);
-      } else {
-        alert("Empate!");
-      }
-      setSelectedCards([]);
-    } else {
-      alert("Selecione exatamente 2 cards para a batalha.");
     }
   };
 
@@ -105,6 +81,11 @@ const Cards = ({ searchHero }) => {
     setModalOpen(false);
   };
 
+  
+  // const closeModalBatalha = () => {
+  //   setModalBatalhaOpen(false);
+  // };
+
   return (
     <Main>
       <CardHeroes>
@@ -146,9 +127,10 @@ const Cards = ({ searchHero }) => {
           closeModal={closeModal}
           selectedHero={selectedHero}
           toggleCardSelection={() => toggleCardSelection(selectedHero)}
-          battleCards={battleCards}
+          // battleCards={battleCards}
           selectedCards={selectedCards}
           // cardTotal={cardTotal}
+          setSelectedCards={setSelectedCards}
         />
       )}
     </Main>

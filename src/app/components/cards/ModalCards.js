@@ -1,16 +1,52 @@
 "use client";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import styled from "styled-components";
 import colors from "../../constants/colors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFistRaised, faShield, faBrain, faBolt, faTachometerAlt, faDumbbell, faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@mui/material";
+import ModalBatalha from "./ModalBatalha"
+
 const Context = createContext();
 
-const ModalCards = ({ closeModal, selectedHero, toggleCardSelection, battleCards, selectedCards }) => {
+const ModalCards = ({ closeModal, selectedHero, toggleCardSelection, selectedCards, setSelectedCards }) => {
 
   const powerstats = selectedHero.powerstats;
   const total = Object.values(powerstats).reduce((acc, cur) => acc + parseInt(cur), 0);
+
+  const [modalBatalhaOpen, setModalBatalhaOpen] = useState(false);
+  const [vencedor, setVencedor] = useState(null);
+
+  const openModalBatalha = () => {
+    battleCards()
+  };
+
+  const closeModalBatalha = () => {
+    setModalBatalhaOpen(false);
+  };
+
+  const battleCards = () => {
+    if (selectedCards.length === 2) {
+      const [card1, card2] = selectedCards;
+      const card1Total = Object.values(card1.powerstats).reduce((acc, cur) => acc + parseInt(cur), 0);
+      const card2Total = Object.values(card2.powerstats).reduce((acc, cur) => acc + parseInt(cur), 0);
+
+      if (card1Total > card2Total) {
+        setVencedor(card1);
+        console.log({card1})
+      } else if (card2Total > card1Total) {
+        setVencedor(card2);
+        console.log({card2})
+      } else {
+        setVencedor("Empate!");
+      }
+
+      setSelectedCards([]);
+      setModalBatalhaOpen(true);
+    } else {
+      alert("Selecione exatamente 2 cards para a batalha.");
+    }
+  };
 
   return (
     <ModalOverlay>
@@ -26,13 +62,11 @@ const ModalCards = ({ closeModal, selectedHero, toggleCardSelection, battleCards
                 : selectedHero.biography.aliases[0]
               : "Sem informações"
             }</span>
-          {/* {console.log(selectedHero.biography.aliases)} */}
         </ModalTitle>
         <PosterPath src={selectedHero.images.lg} alt={selectedHero.name} />
         <h6>{selectedHero.biography.fullName}</h6>
         <Estatisticas>
           <p>{selectedHero.description}</p>
-          {/* <strong>Estatísticas:</strong> */}
           <AtributosInfo>
             <p><FontAwesomeIcon icon={faFistRaised} /> Combate: {selectedHero.powerstats.combat}</p>
           </AtributosInfo>
@@ -58,8 +92,11 @@ const ModalCards = ({ closeModal, selectedHero, toggleCardSelection, battleCards
         <h6 style={{ marginTop: "2%", marginBottom: "10px" }} className="dividing-line"></h6>
         <ButtonsContainer>
           <Button variant="contained" href="#contained-buttons" onClick={toggleCardSelection} >Selecionar</Button>
-          <Button variant="contained" href="#contained-buttons" disabled={selectedCards.length !== 2} onClick={battleCards} >Iniciar Batalha</Button>
+          <Button variant="contained" href="#contained-buttons" disabled={selectedCards.length !== 2} onClick={openModalBatalha} >Iniciar Batalha</Button>
         </ButtonsContainer>
+        {modalBatalhaOpen && (
+          <ModalBatalha closeModal={closeModalBatalha} selectedHero={selectedHero} selectedCards={selectedCards} vencedor={vencedor} />
+        )}
       </ModalContent>
     </ModalOverlay>
   )
