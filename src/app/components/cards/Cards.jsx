@@ -17,6 +17,8 @@ import Pagination from "../../hooks/pagination";
 import { FaChevronCircleUp } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LoaderHero from "../LoaderHero";
+
 const Context = createContext();
 
 const Cards = ({ searchHero }) => {
@@ -24,6 +26,7 @@ const Cards = ({ searchHero }) => {
   const itemsPerPage = 24;
   const [data, setData] = useState(null);
   const [selectedCards, setSelectedCards] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const toggleCardSelection = (hero) => {
     if (selectedCards.length === 2) {
@@ -42,12 +45,15 @@ const Cards = ({ searchHero }) => {
 
   useEffect(() => {
     const getHeroes = async () => {
+      setLoading(true);
       try {
         const res = await axios.get(`${BASE_URL}/api/ps/metahumans`);
         setData(res.data);
+        setLoading(false);
       } catch (error) {
         console.error;
         toast.error("Servidor sobrecarregado, tente novamente.");
+        setLoading(false);
       }
     };
     getHeroes();
@@ -91,7 +97,10 @@ const Cards = ({ searchHero }) => {
         <ToastContainer />
         <CardDividerTop />
         <ImagesPoster>
-          {currentItems &&
+          {loading ? (
+            <LoaderHero />
+          ) : (
+            currentItems &&
             currentItems.map((hero, index) => {
               const powerstats = hero ? hero.powerstats : null;
               const cardTotal = powerstats
@@ -109,7 +118,8 @@ const Cards = ({ searchHero }) => {
                   </PosterContainer>
                 </div>
               );
-            })}
+            })
+          )}
         </ImagesPoster>
         <CardDividerBottom />
         <FaChevronCircleUp

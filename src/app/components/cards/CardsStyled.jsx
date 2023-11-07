@@ -21,6 +21,7 @@ export const CardHeroes = styled.div`
   margin: 10px;
   padding: 5px;
   border-radius: 10px;
+  width: 100%;
   h2 {
     padding: 10px;
     font-weight: 600;
