@@ -55,8 +55,8 @@ const Cards = ({  searchHero }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedHero, setSelectedHero] = useState(null);
 
-  const openModal = (video) => {
-    setSelectedHero(video);
+  const openModal = (hero) => {
+    setSelectedHero(hero);
     setModalOpen(true);
   };
   const closeModal = () => {
@@ -69,8 +69,8 @@ const Cards = ({  searchHero }) => {
         <CardDividerTop />
         <ImagesPoster>
           {currentItems &&
-            currentItems.map((video, index) => {
-              const powerstats = video ? video.powerstats : null;
+            currentItems.map((hero, index) => {
+              const powerstats = hero ? hero.powerstats : null;
               const cardTotal = powerstats
                 ? Object.values(powerstats).reduce(
                     (acc, cur) => acc + parseInt(cur),
@@ -80,9 +80,9 @@ const Cards = ({  searchHero }) => {
 
               return (
                 <div key={index}>
-                  <PosterContainer onClick={() => openModal(video)}>
-                    <PosterPath src={video.images.lg} alt={video.name} />
-                    <h2>{video.name}</h2>
+                  <PosterContainer onClick={() => openModal(hero)}>
+                    <PosterPath src={hero.images.lg} alt={hero.name} />
+                    <h2>{hero.name}</h2>
                     <h2>{cardTotal}</h2>
                   </PosterContainer>
                 </div>

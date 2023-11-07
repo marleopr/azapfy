@@ -7,9 +7,9 @@ Usar Material UI
 
 colocar easteregg
 Botão Voltar ao topo
-Melhorar nomes das variaveis
 Limpar consoles
 Criar Readme
 
+Melhorar nomes das variaveis OK
 Criar Header OK
 Criar Footer OK

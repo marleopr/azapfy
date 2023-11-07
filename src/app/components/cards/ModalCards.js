@@ -130,10 +130,13 @@ const ModalTitle = styled.h2`
   }
 `;
 const PosterPath = styled.img`
-align-items: center;
-width: 200px;
-height: 250px;
-object-fit: cover;  
+  align-items: center;
+  width: 90%;
+  height: 200px;
+  margin: 5px;
+  object-fit: cover;  
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 10px 20px 0 rgba(0,0,0,0.19);
+
   `;
 const Estatisticas = styled.div`
   display: flex;
