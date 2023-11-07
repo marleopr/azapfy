@@ -2,8 +2,10 @@ Instruções: https://drive.google.com/file/d/1Nn2IYDPghDWuA98X62AYezPhZOu9KQj_/
 
 API: http://homologacao3.azapfy.com.br/api/ps/metahumans
 
-Criar Readme
+Adicionar loader
+Deploy Surge
 
+Criar Readme OK
 Usar Material UI OK
 favicon, nome e ptbr OK
 Styles em arquivo separado modais não
