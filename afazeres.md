@@ -2,9 +2,9 @@ Instruções: https://drive.google.com/file/d/1Nn2IYDPghDWuA98X62AYezPhZOu9KQj_/
 
 API: http://homologacao3.azapfy.com.br/api/ps/metahumans
 
-Adicionar loader
 Deploy Surge
 
+Adicionar loader OK
 Criar Readme OK
 Usar Material UI OK
 favicon, nome e ptbr OK
@@ -17,5 +17,4 @@ tentar criar batalha OK
 Melhorar nomes das variaveis OK
 Criar Header OK
 Criar Footer OK
-
-Ao clicar em batalhar, fechar modal card e abrir modal resultado batalha
+Ao clicar em batalhar, fechar modal card e abrir modal resultado batalha não

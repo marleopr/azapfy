@@ -13,7 +13,6 @@ export const Main = styled.div`
     width: 100%;
   }
 `;
-
 export const CardHeroes = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,7 +37,7 @@ export const ImagesPoster = styled.div`
   gap: 15px;
   position: relative;
   cursor: pointer;
-`;
+  `;
 export const PosterContainer = styled.div`
   width: 12rem;
   position: relative;
@@ -50,7 +49,10 @@ export const PosterContainer = styled.div`
       opacity: 1;
     }
   }
-`;
+  @media screen and (max-device-width: 480px) {
+    width: 99%;
+  }
+  `;
 export const PosterPath = styled.img`
   width: 100%;
   height: auto;
