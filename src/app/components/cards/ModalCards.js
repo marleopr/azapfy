@@ -30,13 +30,10 @@ const ModalCards = ({ closeModal, selectedHero, toggleCardSelection, selectedCar
       const [card1, card2] = selectedCards;
       const card1Total = Object.values(card1.powerstats).reduce((acc, cur) => acc + parseInt(cur), 0);
       const card2Total = Object.values(card2.powerstats).reduce((acc, cur) => acc + parseInt(cur), 0);
-
       if (card1Total > card2Total) {
         setVencedor(card1);
-        console.log({card1})
       } else if (card2Total > card1Total) {
         setVencedor(card2);
-        console.log({card2})
       } else {
         setVencedor("Empate!");
       }
@@ -114,7 +111,6 @@ const ModalOverlay = styled.div`
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9999;
-  
   `;
 
 const ModalContent = styled.div`  
@@ -122,7 +118,6 @@ const ModalContent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   position: relative;
   width: 22rem;
   height: 34rem;
@@ -164,10 +159,6 @@ const ModalTitle = styled.h2`
     color: ${colors.blue};
     margin-right: 5px;
   }
-  @media screen and (max-device-width: 480px) {
-    /* font-size: 20px; */
-    /* padding: 25px 40px 15px 40px; */
-  }
 `;
 const PosterPath = styled.img`
   align-items: center;
@@ -176,7 +167,6 @@ const PosterPath = styled.img`
   margin: 5px;
   object-fit: cover;  
   box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 10px 20px 0 rgba(0,0,0,0.19);
-
   `;
 const Estatisticas = styled.div`
   display: flex;
@@ -218,12 +208,6 @@ const Total = styled.div`
     background: ${colors.navy};
     cursor: pointer;
   }
-  @media screen and (min-device-width : 320px) and (max-device-width : 480px){
-    /* width: 80px; */
-    /* height: 20px; */
-    /* font-size: 12px; */
-    /* margin: 5px 0 5px 125px; */
-  }
 `
 const ButtonsContainer = styled.div`
   display: flex;
@@ -231,5 +215,4 @@ const ButtonsContainer = styled.div`
   justify-content: space-evenly;
   width: 100%;
   margin: 10px;
-  /* border: solid 1px red; */
 `

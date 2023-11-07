@@ -8,12 +8,14 @@ import {
   PosterContainer,
   CardDividerTop,
   CardDividerBottom,
+  ContainerPaginator,
 } from "./CardsStyled";
 import Pagination from "../../hooks/pagination";
 import axios from "axios";
 import ModalCards from "./ModalCards";
-
-// import { Button } from "@mui/material";
+import { FaChevronCircleUp } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Context = createContext();
 
@@ -39,16 +41,16 @@ const Cards = ({ searchHero }) => {
   };
 
   useEffect(() => {
-    const getHeroes = () => {
-      axios
-        .get("http://homologacao3.azapfy.com.br/api/ps/metahumans")
-        .then((res) => {
-          setData(res.data);
-          console.log(res.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    const getHeroes = async () => {
+      try {
+        const res = await axios.get(
+          "http://homologacao3.azapfy.com.br/api/ps/metahumans"
+        );
+        setData(res.data);
+      } catch (error) {
+        console.error;
+        toast.error("Servidor sobrecarregado, tente novamente.");
+      }
     };
     getHeroes();
   }, []);
@@ -81,16 +83,14 @@ const Cards = ({ searchHero }) => {
     setModalOpen(false);
   };
 
-  
-  // const closeModalBatalha = () => {
-  //   setModalBatalhaOpen(false);
-  // };
+  const handleScrollPage = () => {
+    window.scrollTo(0, 0);
+  };
 
   return (
     <Main>
       <CardHeroes>
-        {/* <Button onClick={battleCards}>Iniciar Batalha</Button> */}
-
+        <ToastContainer />
         <CardDividerTop />
         <ImagesPoster>
           {currentItems &&
@@ -102,8 +102,6 @@ const Cards = ({ searchHero }) => {
                     0
                   )
                 : 0;
-              // const isSelected = selectedCards.includes(hero);
-
               return (
                 <div key={index}>
                   <PosterContainer onClick={() => openModal(hero)}>
@@ -116,20 +114,25 @@ const Cards = ({ searchHero }) => {
             })}
         </ImagesPoster>
         <CardDividerBottom />
+        <FaChevronCircleUp
+          onClick={handleScrollPage}
+          style={{ cursor: "pointer" }}
+          size={30}
+        />
       </CardHeroes>
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+      <ContainerPaginator>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </ContainerPaginator>
       {modalOpen && selectedHero && (
         <ModalCards
           closeModal={closeModal}
           selectedHero={selectedHero}
           toggleCardSelection={() => toggleCardSelection(selectedHero)}
-          // battleCards={battleCards}
           selectedCards={selectedCards}
-          // cardTotal={cardTotal}
           setSelectedCards={setSelectedCards}
         />
       )}

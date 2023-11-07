@@ -39,7 +39,6 @@ export const ImagesPoster = styled.div`
   cursor: pointer;
 `;
 export const PosterContainer = styled.div`
-  /* border: solid red; */
   width: 12rem;
   position: relative;
   border-radius: 10px;
@@ -130,7 +129,6 @@ export const ModalContent = styled.div`
   border-radius: 10px;
   border-top: solid ${colors.blue};
   background-color: ${colors.white};
-  /* border: solid green; */
 
   iframe {
     border: solid red;
@@ -266,4 +264,7 @@ export const DownloadIcon = styled(Image)`
   left: 5px;
   right: 5px;
   transform: translateY(-50%);
+`;
+export const ContainerPaginator = styled.div`
+  margin: 20px;
 `;

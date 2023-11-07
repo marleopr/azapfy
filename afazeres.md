@@ -4,12 +4,14 @@ API: http://homologacao3.azapfy.com.br/api/ps/metahumans
 
 Usar Material UI
 
-colocar easteregg
-Botão Voltar ao topo
-Limpar consoles
 Criar Readme
 Styles em arquivo separado
+favicon, nome e ptbr
 
+colocar easteregg OK
+Limpar consoles OK
+async await OK
+Botão Voltar ao topo OK
 tentar criar batalha OK
 Melhorar nomes das variaveis OK
 Criar Header OK

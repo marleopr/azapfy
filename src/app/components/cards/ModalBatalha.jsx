@@ -26,15 +26,6 @@ const ModalBatalha = ({ selectedHero, vencedor, closeModal }) => {
     <ModalOverlay>
       <ModalContent>
         <ModalCloseButton onClick={closeModal}>x</ModalCloseButton>
-        {/* <h6
-          style={{ marginTop: "2%", marginBottom: "10px" }}
-          className="dividing-line"
-        ></h6>
-        <ButtonsContainer>
-        </ButtonsContainer>
-        {vencedor.biography.fullName}
-        <PosterPath src={vencedor.images.lg} alt={vencedor.name} />
-        {vencedor ? <Vencedor>Vencedor: {vencedor.name}</Vencedor> : null} */}
         <ModalTitle>
           <h3>VENCEDOR:</h3>
           <span className="title">{vencedor.name}</span>
@@ -46,13 +37,11 @@ const ModalBatalha = ({ selectedHero, vencedor, closeModal }) => {
                 : vencedor.biography.aliases[0]
               : "Sem informações"}
           </span>
-          {/* {console.log(vencedor.biography.aliases)} */}
         </ModalTitle>
         <PosterPath src={vencedor.images.lg} alt={vencedor.name} />
         <h6>{vencedor.biography.fullName}</h6>
         <Estatisticas>
           <p>{vencedor.description}</p>
-          {/* <strong>Estatísticas:</strong> */}
           <AtributosInfo>
             <p>
               <FontAwesomeIcon icon={faFistRaised} /> Combate:{" "}
@@ -159,16 +148,12 @@ const ModalCloseButton = styled.button`
 const ModalTitle = styled.h2`
   font-weight: 600;
   text-align: center;
-  h3{
+  h3 {
     color: ${colors.green};
   }
   .title {
     color: ${colors.blue};
     margin-right: 5px;
-  }
-  @media screen and (max-device-width: 480px) {
-    /* font-size: 20px; */
-    /* padding: 25px 40px 15px 40px; */
   }
 `;
 const PosterPath = styled.img`
@@ -219,12 +204,6 @@ const Total = styled.div`
     background: ${colors.navy};
     cursor: pointer;
   }
-  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    /* width: 80px; */
-    /* height: 20px; */
-    /* font-size: 12px; */
-    /* margin: 5px 0 5px 125px; */
-  }
 `;
 const ButtonsContainer = styled.div`
   display: flex;
@@ -232,6 +211,5 @@ const ButtonsContainer = styled.div`
   justify-content: space-evenly;
   width: 100%;
   margin: 10px;
-  /* border: solid 1px red; */
 `;
 const Vencedor = styled.div``;
