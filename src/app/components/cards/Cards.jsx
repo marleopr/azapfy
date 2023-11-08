@@ -47,7 +47,8 @@ const Cards = ({ searchHero }) => {
     const getHeroes = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`${BASE_URL}/api/ps/metahumans`);
+        // const res = await axios.get(`${BASE_URL}/api/ps/metahumans`);
+        const res = await axios.get(`/api/ps/metahumans`);
         setData(res.data);
         setLoading(false);
       } catch (error) {
