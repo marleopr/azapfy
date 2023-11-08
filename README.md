@@ -4,11 +4,6 @@
 
 Atividade Frontend Azapfy
 
-
-# `Link`
-
-http://marleo-azapfy.surge.sh/
-
 <img src="./public/assets/Header.png" width="300px">
 
 # `Descrição`
